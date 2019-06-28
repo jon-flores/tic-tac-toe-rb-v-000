@@ -40,8 +40,8 @@ def turn(board)
   user_input = gets.strip
   desired_move = input_to_index(user_input)
   if valid_move?(board, desired_move) == true
-  move(board, desired_move, current_player(board))
-  display_board(board)
+    move(board, desired_move, current_player(board))
+    display_board(board)
   else
     puts "Sorry that move is invalid"
     turn(board)
@@ -98,10 +98,8 @@ def winner(board)
 end
 
 def play(board)
-  num_turns = 0
-  until num_turns == 9 || over?(board)
+  until over?(board)
     turn(board)
-    num_turns += 1
   end
   if won?(board)
     puts "Congratulations #{winner(board)}!"
